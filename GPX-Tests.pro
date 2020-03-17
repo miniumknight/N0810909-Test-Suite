@@ -14,8 +14,7 @@ HEADERS += \
     headers/track.h \
     headers/types.h \
     headers/xml/parser.h \
-    headers/xml/element.h \
-    src/gpx-tests/maxlongitude_n0799202.h
+    headers/xml/element.h
 
 SOURCES += \
     src/earth.cpp \
@@ -29,10 +28,17 @@ SOURCES += \
     src/xml/parser.cpp \
     src/gpx-tests/name.cpp \
     src/gpx-tests/numpositions.cpp \
-    src/gpx-tests/maxlongitude_n0799202.cpp
+    src/gpx-tests/maxelevation-n0810103.cpp \
+    src/gpx-tests/netLength-n0771231.cpp \
+    src/gpx-tests/restingtime-n0804540.cpp
 
 INCLUDEPATH += headers/  headers/xml/
 
 TARGET = $$_PRO_FILE_PWD_/execs/gpx-tests
 
 LIBS += -lboost_unit_test_framework
+
+macx{
+INCLUDEPATH += "/usr/local/Cellar/boost/1.71.0/include"
+LIBS += -L"/usr/local/Cellar/boost/1.71.0/lib"
+}
